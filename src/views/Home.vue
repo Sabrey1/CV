@@ -50,8 +50,7 @@
         <hr class="w-[100px] my-4 border-t border-red-300">
       </section>
 
-
-      <section class=" flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+    <section class=" flex flex-col justify-center items-center text-center px-6 animate-fade-in">
         <div class="grid grid-cols-2  gap-4">
   <div>01</div>
   <div>
@@ -64,18 +63,14 @@
       Phone Number : +00 530-445-9283<br>
       Email : info@example.com
     </p>
-
     <div class="flex space-x-4 mt-4">
-           
           <button class="px-6 py-3 font-bold border border-red-600 text-black rounded-xl hover:bg-red-700 hover:text-white transition duration-300">
             Download CV
           </button>
         </div>
   </div>
-   
 </div>
       </section>
-
 
       <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
@@ -98,7 +93,6 @@
           <div>06</div> 
         </div>
       </section>
-
 
       <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
@@ -131,7 +125,31 @@
           industry. Lorem Ipsum standard dummy text.
         </p>
         <hr class="w-[100px] my-4 border-t border-red-300">
+        <div class="grid grid-cols-3 gap-10">
+          <div class="border border-red-600 p-10">
+            <h3 class="text-2xl text-left font-bold mb-2">Digital Security Job</h3>
+            <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim eveniet incidunt quidem illum repellat</p>
+          <button class="px-6 py-3 mt-4 font-bold border border-red-600 text-black rounded-xl hover:bg-red-700 hover:text-white transition duration-300">
+            Read More
+          </button>
+          </div>
+          <div class="border border-red-600 p-10">
+            <h3 class="text-2xl font-bold text-left mb-2">Creative Website Team</h3>
+            <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim eveniet incidunt quidem illum repellat</p>
+          <button class="px-6 py-3 mt-4 font-bold border border-red-600 text-black rounded-xl hover:bg-red-700 hover:text-white transition duration-300">
+            Read More
+          </button>
+          </div> 
+          <div class="border border-red-600 p-10">
+            <h3 class="text-2xl font-bold text-left mb-2">Business Strategy Man</h3>
+            <p class="text-left">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Enim eveniet incidunt quidem illum repellat</p>
+          <button class="px-6 py-3 mt-4 font-bold border border-red-600 text-black rounded-xl hover:bg-red-700 hover:text-white transition duration-300">
+            Read More
+          </button>
+          </div> 
+        </div>
       </section>
+
       <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          Contact  <span class="text-red-600">Me</span>
@@ -141,9 +159,18 @@
           industry. Lorem Ipsum standard dummy text.
         </p>
         <hr class="w-[100px] my-4 border-t border-red-300">
+        <form action="" class="mt-4">
+          <input type="text" placeholder="Enter Your Name" class="border border-gray-300 p-2 mr-2">
+          <input type="text" placeholder="Enter Your Email" class="border border-gray-300 p-2 mr-2">
+          <input type="text" placeholder="Enter Your Subject" class="border border-gray-300 p-2 mr-2">
+          <br> 
+          <br>
+          <textarea name="" id="" cols="168" rows="5" placeholder="Enter Your Message" class="border border-gray-300 p-4"></textarea>
+        </form>
+        <button class="px-6 py-3 mt-4 font-bold border border-red-600 text-black rounded-xl hover:bg-red-700 hover:text-white transition duration-300">
+            Send Message
+          </button>
       </section>
-
-
     </div>
   </div>
 </template>
