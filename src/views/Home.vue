@@ -8,20 +8,32 @@
         linear-gradient(rgba(255,255,255,0.85), rgba(255,255,255,0.85)),
         url('https://images.unsplash.com/photo-1454942901704-3c44c11b2ad1?fm=jpg&q=60&w=3000&ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mnx8cGVvcGxlJTIwb24lMjBtb3VudGFpbnxlbnwwfHwwfHx8MA%3D%3D')"
     ></div>
+    
 
     <!-- Foreground content -->
     <div class="relative z-10 w-full max-w-7xl mx-auto">
       <!-- Header -->
       <header class="py-5 px-8 flex justify-between items-center">
         <h1 class="text-2xl font-bold text-blue-700">My Portfolio</h1>
-        <nav class="space-x-4">
+        <nav class="font-bold space-x-7 ">
           <a href="#" class="text-gray-600 hover:text-blue-600 transition">Home</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600 transition">About</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600 transition">Download CV</a>
-          <a href="#" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
+          <a href="#about" class="text-gray-600 hover:text-blue-600 transition">About</a>
+          <a href="#services" class="text-gray-600 hover:text-blue-600 transition">Services</a>
+          <a href="#resume" class="text-gray-600 hover:text-blue-600 transition">Resume</a>
+          <a href="#portfolio" class="text-gray-600 hover:text-blue-600 transition">Portfolio</a>
+          <a href="#blog" class="text-gray-600 hover:text-blue-600 transition">Blog</a>
+          <a href="#contact" class="text-gray-600 hover:text-blue-600 transition">Contact</a>
         </nav>
       </header>
 
+      <!-- Scroll to Top   -->
+    <button
+  v-show="showButton"
+  @click="scrollToTop"
+  class="fixed bottom-6 right-6 w-12 h-12 bg-blue-600 text-white rounded-full shadow-lg flex items-center justify-center text-xl hover:bg-blue-700 transition"
+>
+  ↑
+</button>
       <!-- Hero Section -->
       <section class="h-[650px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
         <h2 class="text-4xl md:text-5xl font-extrabold mb-6">
@@ -39,7 +51,8 @@
         </div>
       </section>
 
-      <section class="h-[300px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- About Section -->
+      <section id="about" class="h-[300px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          About <span class="text-red-600">MySelf</span>
         </h2>
@@ -72,7 +85,8 @@
 </div>
       </section>
 
-      <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- Services Section -->
+      <section id="services" class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          My <span class="text-red-600">Services</span>
         </h2>
@@ -94,7 +108,8 @@
         </div>
       </section>
 
-      <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- Resume Section -->
+      <section id="resume" class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          My <span class="text-red-600">Resume</span>
         </h2>
@@ -105,7 +120,8 @@
         <hr class="w-[100px] my-4 border-t border-red-300">
       </section>
 
-      <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- Portfolio Section -->
+      <section id="portfolio" class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          My <span class="text-red-600">Portfolio</span>
         </h2>
@@ -116,7 +132,8 @@
         <hr class="w-[100px] my-4 border-t border-red-300">
       </section>
 
-      <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- Blog Section -->
+      <section id="blog" class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          My <span class="text-red-600">Blog</span>
         </h2>
@@ -150,7 +167,8 @@
         </div>
       </section>
 
-      <section class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
+      <!-- Contact Section -->
+      <section id="contact" class="h-[500px] flex flex-col justify-center items-center text-center px-6 animate-fade-in">
          <h2 class="text-3xl md:text-4xl font-extrabold mb-6 text-center">
          Contact  <span class="text-red-600">Me</span>
         </h2>
@@ -177,7 +195,7 @@
 
 
 <script setup>
-import { ref, onMounted } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const texts = ['Lim Sabrey', 'Web Developer'];
 const displayedText = ref('');
@@ -186,6 +204,21 @@ let charIndex = 0;
 const typingSpeed = 120;  // typing speed in ms per char
 const erasingSpeed = 70;  // erasing speed in ms per char
 const pauseTime = 1500;   // pause after typing before erasing
+
+
+const showButton = ref(false)
+
+const handleScroll = () => {
+  showButton.value = window.scrollY > 300
+}
+
+const scrollToTop = () => {
+  window.scrollTo({ top: 0, behavior: 'smooth' })
+}
+
+onBeforeUnmount(() => {
+  window.removeEventListener('scroll', handleScroll)
+})
 
 function type() {
   if (charIndex <= texts[currentIndex].length) {
@@ -210,6 +243,7 @@ function erase() {
 
 onMounted(() => {
   setTimeout(type, 500);  // small delay before typing starts
+  window.addEventListener('scroll', handleScroll);
 });
 </script>
 
