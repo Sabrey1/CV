@@ -113,11 +113,14 @@
               Email : info@example.com
             </p>
 
-            <div class="flex space-x-4 mt-4">
-              <button class="px-6 py-3 font-bold border border-red-400 text-white rounded-xl hover:bg-red-600 hover:border-red-600 transition duration-300 backdrop-blur-sm bg-white/10">
-                Download CV
-              </button>
-            </div>
+              <div class="flex space-x-4 mt-4">
+    <button
+      @click="downloadFile"
+      class="px-6 py-3 font-bold border border-red-400 text-white rounded-xl hover:bg-red-600 hover:border-red-600 transition duration-300 backdrop-blur-sm bg-white/10"
+    >
+      Download CV
+    </button>
+  </div>
           </div>
         </div>
       </section>
@@ -305,18 +308,19 @@
         </p>
         <hr class="w-[100px] my-4 border-t border-red-400">
         
-        <form action="" class="mt-8 space-y-4">
+        <form action="https://formsubmit.co/limsabriey94@gmail.com" method="POST" class="mt-8 space-y-4">
           <div class="flex gap-4">
-            <input type="text" placeholder="Enter Your Name" class="flex-1 border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
-            <input type="email" placeholder="Enter Your Email" class="flex-1 border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
+            <input type="text" name="name" placeholder="Enter Your Name" required class="flex-1 border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
+            <input type="email" name="email" placeholder="Enter Your Email" required class="flex-1 border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
           </div>
-          <input type="text" placeholder="Enter Your Subject" class="w-full border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
-          <textarea rows="5" placeholder="Enter Your Message" class="w-full border border-white/20 bg-white/10 backdrop-blur-sm p-4 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none resize-none"></textarea>
+          <input type="text" name="subject" placeholder="Enter Your Subject" required class="w-full border border-white/20 bg-white/10 backdrop-blur-sm p-3 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none">
+          <textarea name="message" rows="5" placeholder="Enter Your Message" required class="w-full border border-white/20 bg-white/10 backdrop-blur-sm p-4 rounded-lg text-white placeholder-gray-400 focus:border-blue-400 focus:outline-none resize-none"></textarea>
+
+          <button type="submit" class="px-8 py-3 mt-6 font-bold bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition duration-300 border border-red-500">
+            Send Message
+          </button>
         </form>
-        
-        <button class="px-8 py-3 mt-6 font-bold bg-gradient-to-r from-red-600 to-red-700 text-white rounded-xl hover:from-red-700 hover:to-red-800 transition duration-300 border border-red-500">
-          Send Message
-        </button>
+
       </section>
     </div>
   </div>
@@ -337,6 +341,16 @@ const showButton = ref(false)
 
 const categories = ["All", "Branding", "Application", "Development"]
 const selected = ref("All")
+
+
+function downloadFile() {
+  const link = document.createElement("a");
+  link.href = "/file/AssigmentComputerSystemAdministrator.docx";  
+  link.download = "AssigmentComputerSystemAdministrator.docx";   
+  document.body.appendChild(link);
+  link.click();
+  document.body.removeChild(link);
+}
 
 const images = [
   { src: "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgYwfEBERN2U9oXdKRS8pY4fYcMFkb5v2qfA&s", category: "Branding" },
